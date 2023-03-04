@@ -9,7 +9,7 @@ type NoteFormProps = {
     onSubmit: (data: NoteData) => void
     onAddTag: (tag: Tag) => void
     availableTags: Tag[]
-}
+} & Partial<NoteData>
 
 function NoteForm({ onSubmit, onAddTag, availableTags }: NoteFormProps) {
 
@@ -24,7 +24,7 @@ function NoteForm({ onSubmit, onAddTag, availableTags }: NoteFormProps) {
         onSubmit({
             title: titleRef.current!.value,
             markdown: markdownRef.current!.value,
-            tags: []
+            tags: selectedTags
         });
 
         navigate('..');
