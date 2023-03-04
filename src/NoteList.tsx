@@ -25,7 +25,7 @@ function NoteList({availableTags, notes }: NoteListProps) {
                 ))
             );
         });
-    }, [notes, selectedTags, notes]);
+    }, [title, selectedTags, notes]);
 
 
     return ( 
@@ -46,7 +46,7 @@ function NoteList({availableTags, notes }: NoteListProps) {
                     <Col>
                         <Form.Group controlId='title'>
                             <Form.Label>Title</Form.Label>
-                            <Form.Control type='text' placeholder='Enter title' value={title} onChange={e => setTitle(e.target.value)}/>
+                            <Form.Control type='text' value={title} onChange={e => setTitle(e.target.value)}/>
                         </Form.Group>
                     </Col>
                     <Col>
@@ -61,11 +61,13 @@ function NoteList({availableTags, notes }: NoteListProps) {
                                 })}
                                 onChange = {tags => {
                                     setSelectedTags(tags.map(tag => {
-                                        return {id: tag.value, label: tag.label}
+                                        return {label: tag.label, id: tag.value }
                                     }));
                                 }}
-                                isMulti />
-                        </Form.Group></Col>
+                                isMulti 
+                            />
+                        </Form.Group>
+                    </Col>
                 </Row>
             </Form>
             <Row xs={1} sm={2} lg={3} xl={4} className='g-3'>
