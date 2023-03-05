@@ -1,5 +1,5 @@
-import { NoteData, Tag } from "./App";
-import NoteForm from "./NoteForm";
+import { NoteData, Tag } from "../App";
+import NoteForm from "../components/NoteForm";
 import { useNote } from "./NoteLayout";
 
 type EditNoteProps = {
